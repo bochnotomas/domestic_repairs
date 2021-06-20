@@ -1,0 +1,64 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Create an Account</title>
+	<meta name="description" content="form to add new books">
+	<meta name="author" content="Mark Tyers">
+	<link href="{{host}}/style.css" type="text/css" rel="stylesheet" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="module" src="{{host}}/main.js"></script>
+</head>
+
+<body>
+	<header>
+		<nav class="navbar">
+			<h1>Register</h1>
+			<a href="#" class="toggle-button">
+				<span class="bar"></span>
+				<span class="bar"></span>
+				<span class="bar"></span>
+			</a>
+			<div class="navbar-links">
+				<ul>
+					<li><a href="/login">Log In</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	{{#if msg}}
+	<aside>
+		<p class="msg">{{msg}}</p>
+	</aside>
+	{{/if}}
+	<main>
+		<form class="box" id="register" action="/register" enctype="multipart/form-data" method="post">
+			<p>
+				<label for="user">Username</label><br />
+				<input type="text" name="user" placeholder="your preferred username (no spaces)" value="{{body.user}}"
+					required>
+			</p>
+			<p>
+				<label for="pass">Password</label><br />
+				<input type="password" name="pass" placeholder="your chosen password" value="{{body.pass}}" required>
+			</p>
+			<p>
+				<label for="email">Email</label><br />
+				<input type="email" name="email" placeholder="a valid email address" value="{{body.email}}">
+			</p>
+			<p>
+				<label for="phonenumber">Number</label><br />
+				<input type="tel" name="phonenumber" placeholder="a valid phone number" value="{{body.phonenumber}}">
+			</p>
+			<p>
+				<label for="address">Full Address</label><br>
+				<textarea name="address" cols="30" rows="10"></textarea>
+			</p>
+			<p><input type="submit" value="Create"></p>
+		</form>
+	</main>
+</body>
+
+</html>

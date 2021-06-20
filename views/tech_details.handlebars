@@ -1,0 +1,83 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Details - {{issue.typeofapp}}</title>
+    <meta name="description" content="form to add new books">
+    <meta name="author" content="Mark Tyers">
+    <link href="{{host}}/style.css" type="text/css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="{{host}}/main.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class = "navbar">
+            <h1>Details - {{issue.typeofapp}}</h1>
+            <a href="#" class="toggle-button">
+				<span class="bar"></span>
+				<span class="bar"></span>
+				<span class="bar"></span>
+			</a>
+            <div class="navbar-links">
+                <ul>
+                    {{#if authorised}}
+                    <li><a href="/secure/tech">Home</a></li>
+                    {{/if}}
+                    <li><a href="/logout">Log out</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    {{#if msg}}
+    <aside>
+        <p class="msg">{{msg}}</p>
+    </aside>
+    {{/if}}
+    <main>
+        <table>
+            <tr>
+                <th id="first">Customer ID</th>
+                <td>{{issue.userid}}</td>
+            </tr>
+            <tr>
+                <th id="first">Type</th>
+                <td>{{issue.typeofapp}}</td>
+            </tr>
+            <tr>
+                <th id="first">Age</th>
+                <td>{{issue.ageofapp}}</td>
+            </tr>
+            <tr>
+                <th id="first">Manufacturer</th>
+                <td>{{issue.manufacturer}}</td>
+            </tr>
+            <tr>
+                <th id="first">Description</th>
+                <td>{{issue.description}}</td>
+            </tr>
+            <tr>
+                <th id="first">Status</th>
+                <td>{{issue.status}}</td>
+            </tr>
+            <tr>
+                <th id="first">Date</th>
+                <td>{{issue.lastissue}}</td>
+            </tr>
+        </table>
+        <form class="box-inline" action="/secure/tech/details/{{issue.id}}/amend" method="post">
+            <label for="currenStatus">Current status: <b>{{issue.status}}</b></label><br>
+            <label for="statusOption">Change: </label>
+            <select name="status">
+                <option value="unassigned">unassigned</option>
+                <option value="in progress">in progress</option>
+                <option value="resolved">resolved</option>
+            </select>
+            <input type="submit" value="Submit">
+        </form>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Add new</title>
+    <meta name="description" content="form to add new books">
+    <meta name="author" content="Mark Tyers">
+    <link href="{{host}}/style.css" type="text/css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="{{host}}/main.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+			<h1>Add a new issue</h1>
+			<a href="#" class="toggle-button">
+				<span class="bar"></span>
+				<span class="bar"></span>
+				<span class="bar"></span>
+			</a>
+			<div class="navbar-links">
+				<ul>
+                    {{#if authorised}}
+		            <li><a href="/secure">Home</a></li>
+		            {{/if}}
+					<li><a href="/logout">Log out</a></li>
+				</ul>
+			</div>
+		</nav>
+    </header>
+    {{#if msg}}
+    <aside>
+        <p class="msg">{{msg}}</p>
+    </aside>
+    {{/if}}
+    <main>
+        <form class="box" id="add" method="post" action="/secure/add">
+            <label for="type">Type of appliance</label><br>
+            <select name="type">
+                <option value="Wasching machine">Wasching machine</option>
+                <option value="Iron">Iron</option>
+                <option value="Fan">Fan</option>
+                <option value="Dishwasher">Dishwasher</option>
+                <option value="Oven">Oven</option>
+                <option value="Air Conditioner">Air Conditioner</option>
+                <option value="Flat-screen tv">Flat-screen tv</option>
+                <option value="Vacuum cleaner">Vacuum cleaner</option>
+                <option value="Refrigerator">Refrigerator</option>
+                <option value="Microwave">Microwave</option>
+            </select>
+        
+            <label for="age">Age of appliance (not older then 10 years)</label><br>
+            <input type="number" name="age" min="1" max="10" required>
+        
+            <label for="manufacturer">Manufacturer</label><br>
+            <select name="manufacturer">
+                <option value="Philips">Philips</option>
+                <option value="Bosch">Bosch</option>
+                <option value="Russell Hobbs">Russell Hobbs</option>
+                <option value="Kenwood">Kenwood</option>
+                <option value="Philips">Philips</option>
+                <option value="HotPoint">HotPoint</option>
+                <option value="Panasonic">Panasonic</option>
+                <option value="Dyson">Dyson</option>
+                <option value="Electrolux">Electrolux</option>
+                <option value="LG">LG</option>
+            </select>
+        
+            <label for="description">Description</label><br>
+            <textarea name="description" cols="30" rows="10" required></textarea>
+
+            <input type="submit" value="Add Issue">
+        </form>
+    </main>
+</body>
+
+</html>

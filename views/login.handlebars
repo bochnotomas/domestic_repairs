@@ -1,0 +1,49 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Log In</title>
+	<meta name="description" content="form to add new books">
+	<meta name="author" content="Mark Tyers">
+	<link href="{{host}}/style.css" type="text/css" rel="stylesheet" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="module" src="{{host}}/main.js"></script>
+</head>
+
+<body>
+	<header>
+		<nav class="navbar">
+			<h1>Log In</h1>
+			<a href="#" class="toggle-button">
+				<span class="bar"></span>
+				<span class="bar"></span>
+				<span class="bar"></span>
+			</a>
+			<div class="navbar-links">
+				<ul>
+					<li><a href="/">Home page</a></li>
+					<li><a href="/register">Register</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	{{#if msg}}
+	<aside>
+		<p class="msg">{{msg}}</p>
+	</aside>
+	{{/if}}
+	<main>
+		<form class="box" action="/login" method="post">
+			<label for="user">Username</label>
+			<input type="text" name="user" placeholder="your username" value="{{body.user}}">
+			<label for="pass">Password</label>
+			<input type="password" name="pass" placeholder="your password" value="{{body.pass}}">
+			<input type="hidden" name="referrer" value="{{referrer}}">
+			<input type="submit" value="Log in">
+		</form>
+	</main>
+</body>
+
+</html>

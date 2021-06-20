@@ -1,0 +1,59 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Knowledge - {{issue.typeofapp}}</title>
+    <meta name="description" content="form to add new books">
+    <meta name="author" content="Mark Tyers">
+    <link href="{{host}}/style.css" type="text/css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="{{host}}/main.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+			<h1>Technicians, that worked on {{type}} before.</h1>
+			<a href="#" class="toggle-button">
+				<span class="bar"></span>
+				<span class="bar"></span>
+				<span class="bar"></span>
+			</a>
+			<div class="navbar-links">
+				<ul>
+					{{#if authorised}}
+					<li><a href="/secure">Home</a></li>
+					{{/if}}
+					<li><a href="/logout">Log out</a></li>
+				</ul>
+			</div>
+		</nav>
+    </header>
+    {{#if msg}}
+    <aside>
+        <p class="msg">{{msg}}</p>
+    </aside>
+    {{/if}}
+    <main>
+        <table>
+            <tr id="first">
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Num.</th>
+                <th>Address</th>
+            </tr>
+            {{#each technicians}}
+            <tr>
+                <td>{{this.user}}</td>
+                <td>{{this.email}}</td>
+                <td>{{this.phonenumber}}</td>
+                <td>{{this.address}}</td>
+            </tr>
+            {{/each}}
+        </table>
+    </main>
+</body>
+
+</html>

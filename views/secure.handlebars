@@ -1,0 +1,57 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Domestic Repairs</title>
+	<meta name="description" content="form to add new books">
+	<meta name="author" content="Mark Tyers">
+	<link href="{{host}}/style.css" type="text/css" rel="stylesheet" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="module" src="{{host}}/main.js"></script>
+</head>
+<body>
+	<header>
+		<nav class="navbar">
+			<h1>Domestic Repairs</h1>
+			<a href="#" class="toggle-button">
+				<span class="bar"></span>
+				<span class="bar"></span>
+				<span class="bar"></span>
+			</a>
+			<div class="navbar-links">
+				<ul>
+					{{#if authorised}}
+					<li><a href="/secure/add">Add Issue</a></li>
+					{{/if}}
+					<li><a href="/logout">Log out</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	{{#if msg}}
+	<aside>
+		<p class="msg">{{msg}}</p>
+	</aside>
+	{{/if}}
+	<main>
+		<table id="sectable">
+			<tr id = "first">
+				<th>Type</th>
+				<th>Description</th>
+				<th>Status</th>
+				<th>Actions</th>
+			</tr>
+			{{#each records}}
+			<tr>
+				<td>{{this.typeofapp}}</td>
+				<td>{{this.description}}</td>
+				<td>{{this.status}}</td>
+				<td><a href="/secure/details/{{this.id}}">Details</a></td>
+			</tr>
+			{{/each}}
+		</table>
+	</main>
+</body>
+</html>

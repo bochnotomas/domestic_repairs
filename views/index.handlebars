@@ -1,0 +1,46 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Domestic repairs</title>
+	<meta name="description" content="form to add new books">
+	<meta name="author" content="Mark Tyers">
+	<link href="{{host}}/style.css" type="text/css" rel="stylesheet" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="module" src="{{host}}/main.js"></script>
+</head>
+
+<body>
+	<header>
+		<nav class="navbar">
+			<h1>Domestic repairs</h1>
+			<a href="#" class="toggle-button">
+				<span class="bar"></span>
+				<span class="bar"></span>
+				<span class="bar"></span>
+			</a>
+			<div class="navbar-links">
+				<ul>
+					{{#if authorised}}
+					<li><a href="/secure">Home</a></li>
+					<li><a href="/logout">Log out</a></li>
+					{{else}}
+					<li><a href="/login">Log In</a></li>
+					{{/if}}
+				</ul>
+			</div>
+		</nav>
+	</header>
+	{{#if msg}}
+	<aside>
+		<p class="msg">{{msg}}</p>
+	</aside>
+	{{/if}}
+	<main>
+		<p>This is the home page. Please proceed to the login section through navbar.</p>
+	</main>
+</body>
+
+</html>
